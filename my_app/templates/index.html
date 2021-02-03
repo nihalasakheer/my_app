@@ -1,0 +1,133 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600" />
+    <link rel="stylesheet" href="{% static 'css/all.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/templatemo-style.css' %}" />
+    <title>login</title>
+</head>
+<body>
+ 
+    <section id="tmWelcome" class="parallax-window" data-parallax="scroll" data-image-src="{% static 'img/nature1.jpg' %}">   
+      <div class="container-fluid tm-brand-container-outer">
+        <div class="row">
+          <div class="col-12">
+            <div class="ml-auto mr-0 tm-bg-black-transparent text-white tm-brand-container-inner">
+              <div class="tm-brand-container text-center">
+                <h1 class="tm-brand-name">Welcome</h1>
+                <p class="tm-brand-description mb-0">simple parallax template</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+   <br>
+    
+        
+        <form action="/lgoin" method="POST">{% csrf_token %}
+          <div class="login">
+            <div class="login-screen">
+              <div class="text-center">
+                <h1>Login</h1>
+              </div>
+            <div class="login-form">
+              <div class="text-center">
+                  <input type="text" class="login-field" value="" placeholder="username" name="username">
+                  <label class="login-field-icon fui-user" for="login-name"></label>
+              </div>
+              <br>
+              <div class="text-center">
+                  <input type="password" class="login-field" value="" placeholder="password" name="password">
+                  <label class="login-field-icon fui-lock" for="login-pass"></label>
+              </div>
+              <br>
+              <div class="text-center">
+               <input type="submit" value="Log in" class="btn btn-primary">
+               <p>Not a member? <a href="{% url 'signup' %}">Sign up now</a></p>
+              </div>
+             </div>
+            </div>
+           </div>
+          </form>
+          <br>
+          <section>
+            <div class="tm-portfolio-item">
+              <div class="tm-portfolio-name text-white tm-bg-blue">
+                About
+              </div>
+              <div class="tm-portfolio-description">
+                <h3 class="tm-text-blue">
+                  Digital Com
+                  <span class="tm-title-small">(2015 Jan to 2016 Dec)</span>
+                </h3>
+                <p class="mb-0">
+                  Etiam porta est nisl, consectetur dapibus ante faucibus id.
+                  Nunc ullamcorper a quam eget tincidunt. Proin vehicula mauris
+                  ipsum, euismod dignissim dolor convallis ac.
+                </p>
+              </div>
+            </div>
+            <div class="tm-portfolio-item">
+              <div class="tm-portfolio-name text-white tm-bg-dark-gray">
+                Contact Us
+              </div>
+              <div class="tm-portfolio-description">
+                <h3 class="tm-text-dark-gray">
+                  Art Design College
+                  <span class="tm-title-small">
+                    (2012 May to 2014 Dec)
+                  </span>
+                </h3>
+                <p class="mb-0">
+                  Etiam porta est nisl, consectetur dapibus ante faucibus id.
+                  Nunc ullamcorper a quam eget tincidunt. Proin vehicula mauris
+                  ipsum, euismod dignissim dolor convallis ac.
+                </p>
+              </div>
+            </div>
+                      
+          </section>
+
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/parallax.min.js' %}"></script>
+    <script>
+      function detectMsBrowser() {
+        using_ms_browser =
+          navigator.appName == "Microsoft Internet Explorer" ||
+          (navigator.appName == "Netscape" &&
+            navigator.appVersion.indexOf("Edge") > -1) ||
+          (navigator.appName == "Netscape" &&
+            navigator.appVersion.indexOf("Trident") > -1);
+
+        if (using_ms_browser == true) {
+          alert(
+            "Please use Chrome or Firefox for the best browsing experience!"
+          );
+        }
+      }
+      function setBrandMarginTop() {
+        var bottomContainerHeight = $(".tm-welcome-container").height();
+
+        $(".tm-brand-container-outer").css({
+          "margin-top": -bottomContainerHeight + "px"
+        });
+      }
+
+      $(function() {
+        setBrandMarginTop();
+        detectMsBrowser();
+
+        // Handle window resize event
+        $(window).resize(function() {
+          setBrandMarginTop();
+        });
+      });
+    </script>
+  </body>
+</html>
